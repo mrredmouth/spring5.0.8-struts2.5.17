@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="false"/>
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <constant name="struts.configuration.xml.reload" value="false" />
+    <constant name="struts.locale" value="zh_CN" />
+    
+    <package name="default" namespace="/" extends="struts-default">
+		<!-- spring整合struts2的时候，配置的action的class要指向IOC容器的bean的id：class="personAction"。
+			struts2原生的写法：class="com.ccg.springstruts2.actions.PersonAction",让spring管理就要指向bean。
+			指向bean的底层原理：struts2-spring-plugin-2.5.17.jar里面的struts-plugin.xml
+		 -->
+		<action name="personSave" class="personAction">
+			<result name="success" type="redirect">/success.jsp</result>
+		</action>
+		
+    </package>
+    
+</struts>
